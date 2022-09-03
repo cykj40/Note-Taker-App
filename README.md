@@ -7,6 +7,18 @@
   An application that can be used to to write save and delete notes. 
 
   ## Table of Contents
+  
+  * [Description](#description)
+  * [About](#about)
+  * [User Story](#user-story)
+  * [Acceptance Criteria](#acceptance-criteria)
+  * [Screenshots](#screenshots)
+  * [Link to Deployed App](#link-to-deployed-app)
+  * [Installation](#installation)
+  * [License](#license)
+  * [Test](#test)
+  * [Contributers](#contributers)
+  * [Questions](#questions)
  
 
   ## About
@@ -43,6 +55,8 @@
 
 ## Link to Deployed App
 
+<a href="https://notetakerapp122.herokuapp.com/">Click Here to Try out The Note Taker App 🚀  </a>
+
 
  
   ## Installation
@@ -67,6 +81,6 @@ Contact Me<br />
  find me on Github,  [cykj40](https://github.com/cykj40)<br />
 <br /> 
 
-This Readme was made by 🚀 Cy ⚡
+This Readme was made by ⚡ Cy 
 
 
