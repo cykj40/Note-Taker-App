@@ -1,8 +1,9 @@
+// dependencies
 const fs = require('fs');
-const db = require('../../db/db.json')
+const db = require('../../db/db.json') 
 const router = require('express').Router();
 const uniqid = require('uniqid');
-
+// set up /api/notes get route
 router.get('/api/notes', (_req, res) => {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
@@ -11,14 +12,14 @@ router.get('/api/notes', (_req, res) => {
         res.send(data)
     })
 })
-
+// set up /api/notes post route
 router.post('/api/notes', (req, res) => {
     let newNote = {
         id: uniqid(),
         title: req.body.title,
         text: req.body.text
     }
-
+// updates json file when info is added or pushed
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
 
