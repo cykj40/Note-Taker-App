@@ -1,6 +1,6 @@
 // dependencies
 const fs = require('fs');
-const db = require('../../db/db.json') 
+const db = require('../../db/db.json')
 const router = require('express').Router();
 const uniqid = require('uniqid');
 
@@ -16,16 +16,16 @@ router.get('/api/notes', (_req, res) => {
 })
 // set up /api/notes post route
 router.post('/api/notes', (req, res) => {
-    
+
 
     let newNote = {
         id: uniqid(),
         title: req.body.title,
         text: req.body.text
     }
-    
-    
-// updates json file when info is added or pushed
+
+
+    // updates json file when info is added or pushed
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
 
@@ -36,7 +36,7 @@ router.post('/api/notes', (req, res) => {
 
         fs.writeFileSync('./db/db.json', JSON.stringify(newData), (err) => {
             if (err) throw err;
-            
+
             res.send('succesfully added');
 
         })
