@@ -13,7 +13,7 @@ fb.post('/api/notes', (req, res) => {
 const { title, text } = req.body;
 if (title && text) {
     const newNote = {
-        id: uniqid(),
+        id: uuid(),
         title: req.body.title,
         text: req.body.text
  };
