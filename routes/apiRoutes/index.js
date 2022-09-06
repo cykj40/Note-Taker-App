@@ -1,6 +1,6 @@
 // dependencies
 const fb  = require('express').Router();
-const { readAndAppend, readFromFile } = require('../../helpers/fsutils');
+const { readAndAppend, } = require('../../helpers/fsutils');
 const uuid = require('../../helpers/uuid')
 
 // set up /api/notes get route
