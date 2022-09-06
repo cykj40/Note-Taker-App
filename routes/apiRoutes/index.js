@@ -1,47 +1,37 @@
 // dependencies
-const fs = require('fs');
-const db = require('../../db/db.json')
-const router = require('express').Router();
-const uniqid = require('uniqid');
+const fb  = require('express').Router();
+const { readAndAppend, readFromFile } = require('../../helpers/fsutils');
+const uuid = require('../../helpers/uuid')
 
 // set up /api/notes get route
 
-router.get('/api/notes', (_req, res) => {
-    fs.readFile('./db/db.json', (err, data) => {
-        if (err) throw err;
-        console.log(JSON.parse(data));
-
-        res.send(data)
-    })
-})
-// set up /api/notes post route
-router.post('/api/notes', (req, res) => {
-
-
-    let newNote = {
+fb.get('/api/notes', (_req, res) => 
+    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
+);
+// set up /api/notes post route 
+fb.post('/api/notes', (req, res) => {
+const { title, text } = req.body;
+if (title && text) {
+    const newNote = {
         id: uniqid(),
         title: req.body.title,
         text: req.body.text
-    }
+ };
 
+ readAndAppend(newNote, './db/db.json');
+
+ const response = {
+    status: 'success',
+    body: newNote,
+ };
+
+ res.json(response);
+}else {
+    res.json('Error in posting Note');
+}
 
     // updates json file when info is added or pushed
-    fs.readFile('./db/db.json', (err, data) => {
-        if (err) throw err;
+});
 
-        let newData = JSON.parse(data);
 
-        newData.push(newNote);
-        console.log(newData)
-
-        fs.writeFileSync('./db/db.json', JSON.stringify(newData), (err) => {
-            if (err) throw err;
-
-            res.send('succesfully added');
-
-        })
-    });
-
-})
-
-module.exports = router;
+module.exports = fb;
