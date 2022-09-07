@@ -2,7 +2,7 @@
 const fs = require('fs');
 const db = require('../../db/db.json')
 const router = require('express').Router();
-const uuid = require('../../helper/uuid')
+const uuid = require('uuid')
 
 // set up /api/notes get route
 
@@ -18,7 +18,7 @@ router.post('/api/notes', (req, res) => {
     
 
     let newNote = {
-        id: uuid,
+        id: uuid(),
         title: req.body.title,
         text: req.body.text
     };
