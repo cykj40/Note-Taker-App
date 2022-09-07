@@ -7,7 +7,7 @@ const uniqid = require('uniqid');
 // set up /api/notes get route
 
 router.get('/api/notes', (_req, res) => {
-    fs.readFile('db\db.json', (err, data) => {
+    fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
         console.log(JSON.parse(data));
         res.send(data)
@@ -23,14 +23,14 @@ router.post('/api/notes', (req, res) => {
         text: req.body.text
     }
 
-    fs.readFile('db\db.json', (err, data) => {
+    fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
         let newData = JSON.parse(data);
 
         newData.push(newNote);
         consoile.log(newData)
 
-        fs.writeFile('db\db.json', JSON.stringify(newData), (err) => {
+        fs.writeFile('./db/db.json', JSON.stringify(newData), (err) => {
             if (err) throw err;
             res.send('succesfully added');
         })
