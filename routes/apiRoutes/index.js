@@ -1,37 +1,39 @@
 // dependencies
-const fb  = require('express').Router();
-const { readAndAppend, } = require('../../helpers/fsutils');
-const uuid = require('../../helpers/uuid')
+const express  = require('express');
+const router = express.Router();
+const uuid = require('uuid');
+const Db = require('');
 
 // set up /api/notes get route
 
-fb.get('/api/notes', (_req, res) => 
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
-);
+router.get('/api/notes', async function (_req, res) { 
+    const notes = await Db.readNotes();
+    return res.json(notes);
+});
 // set up /api/notes post route 
-fb.post('/api/notes', (req, res) => {
-const { title, text } = req.body;
-if (title && text) {
-    const newNote = {
+router.post('/api/notes', async function (req, res)  {
+const currentNotes = await Db.readNotes();
+
+    let newNote = {
         id: uuid(),
         title: req.body.title,
         text: req.body.text
  };
 
- readAndAppend(newNote, './db/db.json');
+await Db.addNote([...currentNotes, newNote]);
 
- const response = {
-    status: 'success',
-    body: newNote,
- };
-
- res.json(response);
-}else {
-    res.json('Error in posting Note');
-}
-
-    // updates json file when info is added or pushed
+return res.send(newNote);
 });
 
+router.delete("/api/notes/:id", async function (req, res){
+    const noteToDelete = req.params.id;
+    const currentNotes = await Db.readNotes();
+    const newNoteData = currentNotes.filter((note) => note.id !== noteToDelete);
+    await Db.deleteNote(newNoteData);
+    return res.send(newNoteData);
+});
 
-module.exports = fb;
+module.exports = router;
+ 
+
+
