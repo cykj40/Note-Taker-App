@@ -1,39 +1,45 @@
 // dependencies
-import { Router } from 'express';
-const router = Router();
-import uuid from 'uuid';
-import { readNotes, addNote, deleteNote } from '';
+const fs = require('fs');
+const db = require('../../db/db.json')
+const router = require('express').Router();
+const uuid = require('../../helper/uuid')
 
 // set up /api/notes get route
 
-router.get('/api/notes', async function (_req, res) { 
-    const notes = await readNotes();
-    return res.json(notes);
-});
+router.get('/api/notes', (_req, res) =>{
+    fs.readFile('./db/db.json', (err, data) => {
+        if (err) throw err;
+        ocnsole.log(JSON.parse(data));
+        res.send(data)
+    })
+})
 // set up /api/notes post route 
-router.post('/api/notes', async function (req, res)  {
-const currentNotes = await readNotes();
+router.post('/api/notes', (req, res) => {
+    
 
     let newNote = {
-        id: uuid(),
+        id: uuid,
         title: req.body.title,
         text: req.body.text
- };
+    };
 
-await addNote([...currentNotes, newNote]);
+   fs.readFile('./db/db.json', (err, data) => {
+    if (err) throw err;
+    let newData = JSON.parse(data);
 
-return res.send(newNote);
+    newData.push(newNote);
+    consoile.log(newData)
+
+    fs.writeFile('./db/db.json', JSON.stringify(newData), (err) =>{
+        if (err) throw err;
+        res.send('succesfully added');
+    })
+   });
 });
 
-router.delete("/api/notes/:id", async function (req, res){
-    const noteToDelete = req.params.id;
-    const currentNotes = await readNotes();
-    const newNoteData = currentNotes.filter((note) => note.id !== noteToDelete);
-    await deleteNote(newNoteData);
-    return res.send(newNoteData);
-});
+
 
 export default router;
- 
+
 
 
