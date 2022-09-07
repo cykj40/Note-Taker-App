@@ -2,7 +2,7 @@
 const fs = require('fs');
 const db = require('../../db/db.json')
 const router = require('express').Router();
-const uuid = require('uuid')
+const uuid = require('uuid');
 
 // set up /api/notes get route
 
