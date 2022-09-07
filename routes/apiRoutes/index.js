@@ -28,7 +28,7 @@ router.post('/api/notes', (req, res) => {
         let newData = JSON.parse(data);
 
         newData.push(newNote);
-        consoile.log(newData)
+        console.log(newData)
 
         fs.writeFile('./db/db.json', JSON.stringify(newData), (err) => {
             if (err) throw err;
