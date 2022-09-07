@@ -12,9 +12,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "path": "^0.12.7",
-    "uniqid": "5.4.0",
-    "uuid": "^3.3.3"
-  },
+    "uniqid": "5.4.0"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cykj40/Note-Taker-App.git"
