@@ -47,8 +47,10 @@
   THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
   ```
   ## Screenshots
-  ![Screenshot (44)](https://user-images.githubusercontent.com/102045473/188288018-115b7eed-81f0-4463-9274-9f6cad7edca5.png)
-  ![Screenshot (46)](https://user-images.githubusercontent.com/102045473/188288030-a11ca4db-b540-4ff9-a032-c3e8ff0a8761.png)
+![projectpic1 (2)](https://user-images.githubusercontent.com/102045473/189147415-8bd1f2bc-74fe-46e1-b573-14900a1a7e16.png)
+![project pic 2 (2)](https://user-images.githubusercontent.com/102045473/189147464-5b965d87-54f2-41b1-bc30-4bb7fbc23ae4.png)
+
+
 
 
 ![Screenshot (47)](https://user-images.githubusercontent.com/102045473/188288037-5450689e-326d-4f76-a7a3-bd7b83436dbe.png)
