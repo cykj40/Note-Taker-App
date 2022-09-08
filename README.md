@@ -49,7 +49,7 @@
   ## Screenshots
   ![Screenshot (44)](https://user-images.githubusercontent.com/102045473/188288018-115b7eed-81f0-4463-9274-9f6cad7edca5.png)
   ![Screenshot (46)](https://user-images.githubusercontent.com/102045473/188288030-a11ca4db-b540-4ff9-a032-c3e8ff0a8761.png)
-  ![Screenshot (45)](https://user-images.githubusercontent.com/102045473/188288034-81a90569-87f0-4915-8574-3d5debbf1ca9.png)
+
 
 ![Screenshot (47)](https://user-images.githubusercontent.com/102045473/188288037-5450689e-326d-4f76-a7a3-bd7b83436dbe.png)
 
